@@ -1,6 +1,6 @@
-package com.tecladosstore.tienda.model;
+package com.keyboard.api.modules.catalogo.entities;
 
-import jakarta.persitence.*;
+import jakarta.persistence.*;
 import java.time.localtime;
 
 @Entity
@@ -14,16 +14,16 @@ public class Marca
     @Column(name = "marca_id")
     private Long id;
 
-    @Column(name = "nombre", nulleable = false, unique = true, length = 100)
+    @Column(name = "nombre", nullable = false, unique = true, length = 100)
     private String nombre;
 
-    @Column(name = "slug", nulleable = false, unique = true, length = 120)
+    @Column(name = "slug", nullable = false, unique = true, length = 120)
     private String slug;
 
-    @Column(name = "logo_url", columnDefinition = "TEXT") //Mapea el url en tiopo texto
+    @Column(name = "logo_url", columnDefinition = "TEXT") //Mapea el url en tipo texto
     private String logoUrl;
 
-    @Column(name = "activa" , nulleable = false)
+    @Column(name = "activa" , nullable = false)
     private Boolean activa = true; //valores por defecto
 
 
