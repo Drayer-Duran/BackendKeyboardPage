@@ -1,4 +1,4 @@
-package com.keyboard.api.modules.com.keyboard.api.modules.shared.validations;
+package com.keyboard.api.modules.shared.validations;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 import java.lang.annotation.*;
@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 
 @Documented
-@Constraint(validateBy = rutValidator.class)//Esta clase hace la validacion
+@Constraint(validatedBy = RutValidator.class)//Esta clase hace la validacion
 @Target({ElementType.FIELD, ElementType.PARAMETER})//se usara sobre variables y ciertos parametros
 @Retention(RetentionPolicy.RUNTIME)//SOLO EXISTE MIENTRAS EL SERVIDOR ESTA ON
 public @interface RutValido {

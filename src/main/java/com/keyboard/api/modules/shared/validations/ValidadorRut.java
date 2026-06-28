@@ -23,7 +23,7 @@ public class ValidadorRut
         {
 
             //Separar el digito verificador del cuerpo
-            String cuerpo = rutLimpio.substring(0,rutlimpio.length()-1);//Separa el ultimo digito
+            String cuerpo = rutLimpio.substring(0,rutLimpio.length()-1);//Separa el ultimo digito
 
             //Toma el ultimo digito del cuerpo anterior
             //dv = digito verificador
