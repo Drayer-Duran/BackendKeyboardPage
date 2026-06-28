@@ -1,4 +1,4 @@
-package com.keyboard.api.modules.shared.validations;
+package com.keyboard.api.modules.shared.utils;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -9,7 +9,7 @@ public class RutValidator implements ConstraintValidator<RutValido, String>
     @Override
     public void initialize(RutValido constraintAnnotation)
     {
-
+        // 
     }
 
     @Override
