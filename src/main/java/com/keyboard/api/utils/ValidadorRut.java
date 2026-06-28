@@ -1,16 +1,16 @@
 package com.keyboard.api.modules.shared.utils;
 
-public class RutUtils
+public class ValidadorRut
 {
     
-    public static boolean validarRut(string rutCompleto)
+    public static boolean validarRut(String rutCompleto)
     {
         if(rutCompleto == null || rutCompleto.trim().isEmpty())
         {
             return false;//Si esta vacio
         }
 
-        String rutLimplio = rutCompleto.replace(".","").replace("-","").toUppercase().trim();
+        String rutLimpio = rutCompleto.replace(".","").replace("-","").toUpperCase().trim();
 
         if(rutLimpio.length()<2)
         {
@@ -27,10 +27,10 @@ public class RutUtils
 
             //Toma el ultimo digito del cuerpo anterior
             //dv = digito verificador
-            char dvProporcionado = rut limpio.charAt(rutLimpio.length()-1)
+            char dvProporcionado = rutLimpio.charAt(rutLimpio.length()-1);
 
             //Convertir el cuerpo del rut que esta pasado de varchar a integer o numero
-            if(rutNumero = Integer.parseInt(cuerpo));
+            int rutNumero = Integer.parseInt(cuerpo);
 
             //Esquema matematico para poder validar el rut en base a Modulo 11 
             int suma = 0;
@@ -44,12 +44,12 @@ public class RutUtils
                 multiplo = (multiplo ==7) ? 2 : multiplo +1;
             }
 
-            int resto = 11 -(suma % 11)
+            int resto = 11 -(suma % 11);
             
             //El dv que sale de la multiplicacion
             char dvCalculado;
 
-            if(resto = 11)
+            if(resto == 11)
             {
                 dvCalculado = '0';
             }else if(resto == 10)
@@ -57,12 +57,12 @@ public class RutUtils
                 dvCalculado = 'K';
             }
             else
-            {
+            {   
                 //pasamos el numero a caracter
                 dvCalculado = Character.forDigit(resto, 10);
             }
 
-            reutrn dvProporcionado == dvCalculado;
+            return dvProporcionado == dvCalculado;
 
         }catch (NumberFormatException e)
         {
