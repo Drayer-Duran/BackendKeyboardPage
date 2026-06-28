@@ -12,13 +12,13 @@ public class Marca
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Serial de PostgresSQL
 
     @Column(name = "marca_id")
-    private Long id;
+    private Long marcaId;
 
-    @Column(name = "nombre", nullable = false, unique = true, length = 100)
-    private String nombre;
+    @Column(name = "nombre_marca", nullable = false, unique = true, length = 100)
+    private String nombre_marca;
 
-    @Column(name = "slug", nullable = false, unique = true, length = 120)
-    private String slug;
+    @Column(name = "slug_marca", nullable = false, unique = true, length = 120)
+    private String slug_marca;
 
     @Column(name = "logo_url", columnDefinition = "TEXT") //Mapea el url en tipo texto
     private String logoUrl;
@@ -27,15 +27,15 @@ public class Marca
     private Boolean activa = true; //valores por defecto
 
 
-public Marca(String nombre, String slug, String logoUrl, Boolean activa)
+public Marca()
 {
-
 }
 
-public Marca(String nombre, String slug, String logoUrl, Boolean activa)
+
+public Marca(String nombre_marca, String slug_marca, String logoUrl, Boolean activa)
 {
-    this.nombre = nombre;
-    this.slug = slug;
+    this.nombre_marca = nombre_marca;
+    this.slug_marca = slug_marca;
     this.logoUrl = logoUrl;
     this.activa = true;
 }
@@ -48,24 +48,24 @@ public Marca(String nombre, String slug, String logoUrl, Boolean activa)
     {
     this.id = id;
     }
-    //Nombre
-    public String getNombre()
+    //nombre_marca
+    public String getNombre_marca()
     {
-        return nombre;
+        return nombre_marca;
     }
-    public void setNombre(String nombre)
+    public void setNombre_marca(String nombre_marca)
     {
-        this.nombre = nombre;
+        this.nombre_marca = nombre_marca;
     }
 
-    //Slug
-    public String getSlug()
+    //slug_marca
+    public String getSlug_marca()
     {
-        return slug;
+        return slug_marca;
     }
-    public void setSlug(String slug)
+    public void setSlug_marca(String slug_marca)
     {
-        this.slug = slug;
+        this.slug_marca = slug_marca;
     }
 
     //Url

@@ -1,107 +1,72 @@
 package com.keyboard.api.modules.catalogo.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "categorias", schema = "tienda")
 public class Categoria {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long categoria_id;
+    @Column(name = "categoria_id")
+    private Long categoriaId; // 
 
-    @Column(name = "nombre_categoria", nullable = false)
-    private String nombre_categoria;
+    @Column(name = "nombre", nullable = false, length = 100)
+    private String nombre;
 
-    @Column(name = "slug_categoria", nullable = false, unique = true)
-    private String slug_categoria;
+    @Column(name = "slug", nullable = false, unique = true, length = 120)
+    private String slug;
 
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
 
-    @Column(name = "imagen_url")
+    @Column(name = "imagen_url", columnDefinition = "TEXT")
     private String imagenUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "padre_id", referencedColumnName = "categoria_id")
+    @JoinColumn(name = "padre_id")
     private Categoria padre;
 
-    @Column(name = "activa", nullable = false, default = true)
+    @Column(name = "activa", nullable = false)
     private Boolean activa = true;
 
-    @Column(name = "orden", nullable = false, default = 0)
-    private Short orden;
+    @Column(name = "orden", nullable = false)
+    private Short orden = 0; 
 
     public Categoria() {
-        // Constructor vacío necesario para el Hibernate
+        //Constructor vacio
     }
 
-    public Categoria(String nombre_categoria, String slug_categoria) {
-        this.nombre_categoria = nombre_categoria;
-        this.slug_categoria = slug_categoria;
+    public Categoria(String nombre, String slug) {
+        this.nombre = nombre;
+        this.slug = slug;
     }
 
-    public Long getCategoria_id() {
-        return categoria_id;
-    }
+    // ==========================================
+    // GETTERS Y SETTERS (Actualizados a camelCase)
+    // ==========================================
+    
+    public Long getCategoriaId() { return categoriaId; }
+    public void setCategoriaId(Long categoriaId) { this.categoriaId = categoriaId; }
 
-    public void setCategoria_id(Long categoria_id) {
-        this.categoria_id = categoria_id;
-    }
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public String getNombre_categoria() {
-        return nombre_categoria;
-    }
+    public String getSlug() { return slug; }
+    public void setSlug(String slug) { this.slug = slug; }
 
-    public void setNombre_categoria(String nombre_categoria) {
-        this.nombre_categoria = nombre_categoria;
-    }
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
-    public String getSlug_categoria() {
-        return slug_categoria;
-    }
+    public String getImagenUrl() { return imagenUrl; }
+    public void setImagenUrl(String imagenUrl) { this.imagenUrl = imagenUrl; }
 
-    public void setSlug_categoria(String slug_categoria) {
-        this.slug_categoria = slug_categoria;
-    }
+    public Categoria getPadre() { return padre; }
+    public void setPadre(Categoria padre) { this.padre = padre; }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+    public Boolean getActiva() { return activa; }
+    public void setActiva(Boolean activa) { this.activa = activa; }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getImagenUrl() {
-        return imagenUrl;
-    }
-
-    public void setImagenUrl(String imagenUrl) {
-        this.imagenUrl = imagenUrl;
-    }
-
-    public Categoria getPadre() {
-        return padre;
-    }
-
-    public void setPadre(Categoria padre) {
-        this.padre = padre;
-    }
-
-    public Boolean getActiva() {
-        return activa;
-    }
-
-    public void setActiva(Boolean activa) {
-        this.activa = activa;
-    }
-
-    public Short getOrden() {
-        return orden;
-    }
-
-    public void setOrden(Short orden) {
-        this.orden = orden;
-    }
+    public Short getOrden() { return orden; }
+    public void setOrden(Short orden) { this.orden = orden; }
 }
