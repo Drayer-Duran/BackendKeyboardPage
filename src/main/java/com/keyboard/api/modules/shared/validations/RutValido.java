@@ -2,7 +2,7 @@ package com.keyboard.api.modules.shared.validations;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 import java.lang.annotation.*;
-
+import com.keyboard.api.modules.shared.utils.RutValidator;
 
 
 @Documented
