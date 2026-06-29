@@ -1,7 +1,6 @@
 package com.keyboard.api.modules.catalogo.entities;
 
 import jakarta.persistence.*;
-import java.time.localtime;
 
 @Entity
 @Table(name = "marcas", schema = "tienda")//esquema PostgresSQL
@@ -15,10 +14,10 @@ public class Marca
     private Long marcaId;
 
     @Column(name = "nombre_marca", nullable = false, unique = true, length = 100)
-    private String nombre_marca;
+    private String nombreMarca;
 
     @Column(name = "slug_marca", nullable = false, unique = true, length = 120)
-    private String slug_marca;
+    private String slugMarca;
 
     @Column(name = "logo_url", columnDefinition = "TEXT") //Mapea el url en tipo texto
     private String logoUrl;
@@ -32,40 +31,41 @@ public Marca()
 }
 
 
-public Marca(String nombre_marca, String slug_marca, String logoUrl, Boolean activa)
+public Marca(String nombreMarca, String slugMarca, String logoUrl, Boolean activa)
 {
-    this.nombre_marca = nombre_marca;
-    this.slug_marca = slug_marca;
+    this.nombreMarca = nombreMarca;
+    this.slugMarca = slugMarca;
     this.logoUrl = logoUrl;
     this.activa = true;
 }
     //id
-    public Long getId()
-    {
-        return id;
-    }
-    public void setId(Long id)
-    {
-    this.id = id;
+
+    public Long getMarcaId()
+     { 
+        return marcaId; 
+     }
+    public void setMarcaId(Long marcaId) 
+    { 
+        this.marcaId = marcaId; 
     }
     //nombre_marca
-    public String getNombre_marca()
+    public String getNombreMarca()
     {
-        return nombre_marca;
+        return nombreMarca;
     }
-    public void setNombre_marca(String nombre_marca)
+    public void setNombreMarca(String nombreMarca)
     {
-        this.nombre_marca = nombre_marca;
+        this.nombreMarca = nombreMarca;
     }
 
     //slug_marca
-    public String getSlug_marca()
+    public String getSlugMarca()
     {
-        return slug_marca;
+        return slugMarca;
     }
-    public void setSlug_marca(String slug_marca)
+    public void setSlugMarca(String slugMarca)
     {
-        this.slug_marca = slug_marca;
+        this.slugMarca = slugMarca;
     }
 
     //Url
