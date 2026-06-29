@@ -2,7 +2,7 @@ package com.keyboard.api.modules.shared.utils;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import com.keyboard.api.modules.shared.utils.ValidatorRut;
+import com.keyboard.api.modules.shared.validations.RutValido;
 
 public class RutValidator implements ConstraintValidator<RutValido, String> 
 {
@@ -19,7 +19,6 @@ public class RutValidator implements ConstraintValidator<RutValido, String>
         {
             return false;
         }
-
 
         return ValidadorRut.validarRut(value);
     }
